@@ -19,7 +19,9 @@ const App = () => {
           placeholder={'Search keywords'}
         />
       </View>
-      <Image />
+      <Image 
+      style={styles.bgImage}
+      source={{uri: 'https://github.com/princejoogie/makaturismo/blob/master/Assets/dashboard_bg.jpg?raw=true'}}/>
     </View>
   );
 };
@@ -27,6 +29,10 @@ const App = () => {
 const styles = StyleSheet.create({
   appView: {
     flex: 1,
+  },
+  bgImage: {
+    height: nHeight - 200,
+    width: nWidth,
   },
   searchArea: {
     height: 50,
