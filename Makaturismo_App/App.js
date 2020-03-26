@@ -19,9 +19,10 @@ const App = () => {
           placeholder={'Search keywords'}
         />
       </View>
-      <Image 
-      style={styles.bgImage}
-      source={{uri: 'https://github.com/princejoogie/makaturismo/blob/master/Assets/dashboard_bg.jpg?raw=true'}}/>
+        <Image
+          style={styles.bgImage}
+          source={{ uri: 'https://github.com/princejoogie/makaturismo/blob/master/Assets/dashboard_img.jpg?raw=true' }}
+        />
     </View>
   );
 };
