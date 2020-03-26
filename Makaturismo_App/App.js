@@ -19,6 +19,7 @@ const App = () => {
           placeholder={'Search keywords'}
         />
       </View>
+      <Image />
     </View>
   );
 };
