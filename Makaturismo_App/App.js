@@ -1,5 +1,15 @@
 import React from 'react';
-import { View, TextInput, StyleSheet, Dimensions, Image, Text, ScrollView } from 'react-native';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Dimensions,
+  Image,
+  Text,
+  ScrollView,
+  ImageBackground,
+  SafeAreaView,
+} from 'react-native';
 import AppBar from './components/AppBar.js';
 
 const nWidth = Math.round(Dimensions.get('window').width);
@@ -9,46 +19,76 @@ const App = () => {
   const [value, onChangeText] = React.useState('');
 
   return (
-    <ScrollView>
-      <View style={styles.appView}>
-        <Image
-          style={{ width: nWidth, height: nHeight, position: 'absolute' }}
-          source={{ uri: 'https://github.com/princejoogie/makaturismo/blob/master/Assets/dashboard_bg.jpg?raw=true' }}
-        />
-        <AppBar />
-        <View style={styles.searchArea}>
-          <TextInput
-            style={styles.searchBox}
-            onChangeText={text => onChangeText(text)}
-            value={value}
-            placeholder={'Search keywords'}
-          />
-        </View>
-        <Text style={styles.txtWhatsNew}>What's new?</Text>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <View style={styles.cardWidget}>
-            <Text style={styles.cardTextTwo}>to eat?</Text>
-            <Text style={styles.cardTextOne}>Where</Text>
-          </View>
-          <View style={styles.cardWidgetTwo}>
-            <Text style={styles.cardTextTwo}>to stay?</Text>
-            <Text style={styles.cardTextOne}>Where</Text>
-          </View>
-          <View style={styles.cardWidget}>
-            <Text style={styles.cardTextTwo}>to ride?</Text>
-            <Text style={styles.cardTextOne}>Where</Text>
-          </View>
-        </ScrollView>
+    <SafeAreaView style={styles.appView}>
+      <ImageBackground
+        source={{ uri: 'https://github.com/princejoogie/makaturismo/blob/master/Assets/dashboard_bg.jpg?raw=true' }}
+        style={{ flex: 1 }}
+>
+        <ScrollView>
 
-        <Text style={{
-          color: '#333333',
-          marginHorizontal: 25,
-          fontSize: 30,
-          fontWeight: 'bold',
-        }}>Most visted</Text>
+          <AppBar />
+          <View style={styles.searchArea}>
+            <TextInput
+              style={styles.searchBox}
+              onChangeText={text => onChangeText(text)}
+              value={value}
+              placeholder={'Search keywords'}
+            />
+          </View>
+          <Text style={styles.txtWhatsNew}>What's new?</Text>
+
+          <View>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+              <View style={styles.cardWidget}>
+                <Text style={styles.cardTextTwo}>to eat?</Text>
+                <Text style={styles.cardTextOne}>Where</Text>
+              </View>
+              <View style={styles.cardWidgetTwo}>
+                <Text style={styles.cardTextTwo}>to stay?</Text>
+                <Text style={styles.cardTextOne}>Where</Text>
+              </View>
+              <View style={styles.cardWidget}>
+                <Text style={styles.cardTextTwo}>to ride?</Text>
+                <Text style={styles.cardTextOne}>Where</Text>
+              </View>
+            </ScrollView>
+
+            <Text style={{
+              color: '#333333',
+              marginHorizontal: 25,
+              fontSize: 30,
+              fontWeight: 'bold',
+            }}>Most visted</Text>
+          </View>
+
+        </ScrollView>
+      </ImageBackground>
+      <View style={{
+        width: nWidth - 100,
+        height: 65,
+        backgroundColor: '#f2f2f2',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        marginLeft: 50,
+        marginBottom: 25,
+        borderRadius: 65 / 2,
+        elevation: 5,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 15,
+      }}>
+
+        <View style={{width: 40, height: 40, backgroundColor: '#cccccc', borderRadius: 20}}></View>
+        <View style={{width: 40, height: 40, backgroundColor: '#cccccc', borderRadius: 20}}></View>
+        <View style={{width: 40, height: 40, backgroundColor: '#cccccc', borderRadius: 20}}></View>
+        <View style={{width: 40, height: 40, backgroundColor: '#cccccc', borderRadius: 20}}></View>
 
       </View>
-    </ScrollView>
+    </SafeAreaView>
+
   );
 };
 
